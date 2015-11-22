@@ -1,0 +1,72 @@
+<h1>Products#index</h1>
+<p>Find me in app/views/products/index.html.erb</p>
+
+<h3>1.Use object to display</h3>
+<%= @products %>
+<br>
+<%= @products.name %>
+<%= @products.count %>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	<% @products.each do |product| %>
+	  <tr>
+	  	<td><%= product.name %></td>
+		  <td><%= product.price %></td>
+      <% product.reviews.each do |review| %>
+        <td><%= review.user %></td>
+        <td><%= review.rating %></td>
+        <td><%= review.body %></td>
+      <% end %>
+	  </tr>
+	<% end %>
+  
+  
+  </tbody>
+</table>
+
+<h3>2.Use JSON to display</h3>
+<%= @jproducts %>
+<% parsed = JSON.parse(@jproducts) %>
+<table border="1">
+  <thead>
+    <tr
+      <th>Name</th>
+      <th>Price</th>
+      <th>Active</th>
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% parsed["products"].each do |product| %>
+    <tr>
+      <td><%= product["name"] %></td>
+		  <td><%= product["price"] %></td>
+      <td><%= product["active"] %></td>
+      
+      <% product["reviews"].each do |review| %>
+        <td><%= review["user"] %></td>
+        <td><%= review["rating"] %></td>
+        <td><%= review["body"] %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  
+
+
+
+
+<% if false %>
+<%= raw render(:template => "products/products.json"), :locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:jbuilder] %>
+<%= parsed[products] %>
+<% end %>

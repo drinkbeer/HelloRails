@@ -2,8 +2,10 @@
 
 one:
   name: MyString
-  email: MyString
+  price: 9.99
+  active: false
 
 two:
   name: MyString
-  email: MyString
+  price: 9.99
+  active: false

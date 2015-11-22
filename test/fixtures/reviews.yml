@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  uid: 1
-  score: 1
+  product_id: 
+  user: MyString
+  rating: 1
+  body: MyText
 
 two:
-  uid: 1
-  score: 1
+  product_id: 
+  user: MyString
+  rating: 1
+  body: MyText
